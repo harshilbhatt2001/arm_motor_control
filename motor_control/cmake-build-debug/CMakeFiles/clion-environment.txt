@@ -1,0 +1,4 @@
+ToolSet: 3.18 (local)@C:\MinGW
+Options: 
+
+Options:-DCMAKE_TOOLCHAIN_FILE=/Users/harsh/Repos/cmake-avr/generic-gcc-avr.cmake
