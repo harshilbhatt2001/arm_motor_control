@@ -10,3 +10,7 @@ src\protected_io.S
 
 src\spi_usi_driver_init.c
 
+src\system.c
+
+uart_driver.c
+

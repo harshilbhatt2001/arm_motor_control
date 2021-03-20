@@ -28,6 +28,6 @@ int main(void)
     sei();
     while(1)
     {
-        PORTB_set_port_level(spiX_get(), true);
+		TransmitByte(spiX_get());
     }
 }

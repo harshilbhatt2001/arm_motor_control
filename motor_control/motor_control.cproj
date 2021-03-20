@@ -125,6 +125,9 @@
     <Compile Include="Config\spi_usi_driver.h">
       <SubType>compile</SubType>
     </Compile>
+    <Compile Include="Config\uart_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\spi_usi_driver_init.h">
       <SubType>compile</SubType>
     </Compile>
@@ -150,6 +153,12 @@
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="src\spi_usi_driver_init.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\system.c">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="uart_driver.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="utils\assembler.h">

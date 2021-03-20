@@ -44,7 +44,9 @@ SUBDIRS :=  \
 C_SRCS +=  \
 ../main.c \
 ../spi_usi_driver.c \
-../src/spi_usi_driver_init.c
+../src/spi_usi_driver_init.c \
+../src/system.c \
+../uart_driver.c
 
 
 PREPROCESSING_SRCS +=  \
@@ -58,25 +60,33 @@ OBJS +=  \
 main.o \
 spi_usi_driver.o \
 src/protected_io.o \
-src/spi_usi_driver_init.o
+src/spi_usi_driver_init.o \
+src/system.o \
+uart_driver.o
 
 OBJS_AS_ARGS +=  \
 main.o \
 spi_usi_driver.o \
 src/protected_io.o \
-src/spi_usi_driver_init.o
+src/spi_usi_driver_init.o \
+src/system.o \
+uart_driver.o
 
 C_DEPS +=  \
 main.d \
 spi_usi_driver.d \
 src/protected_io.d \
-src/spi_usi_driver_init.d
+src/spi_usi_driver_init.d \
+src/system.d \
+uart_driver.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
 spi_usi_driver.d \
 src/protected_io.d \
-src/spi_usi_driver_init.d
+src/spi_usi_driver_init.d \
+src/system.d \
+uart_driver.d
 
 OUTPUT_FILE_PATH +=motor_control.elf
 
@@ -107,6 +117,20 @@ LINKER_SCRIPT_DEP+=
 	
 
 src/spi_usi_driver_init.o: ../src/spi_usi_driver_init.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)D:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny2313A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny2313A__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+src/system.o: ../src/system.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)D:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny2313A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny2313A__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./uart_driver.o: .././uart_driver.c
 	@echo Building file: $<
 	@echo Invoking: XC8 C Compiler : 2.31
 	$(QUOTE)D:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny2313A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny2313A__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
