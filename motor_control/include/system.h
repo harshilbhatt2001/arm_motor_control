@@ -10,6 +10,7 @@
 #ifndef SYSTEM_INCLUDED
 #define SYSTEM_INCLUDED
 
+#include <xc.h>
 #include "port.h"
 #include "protected_io.h"
 #ifdef __cplusplus

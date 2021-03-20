@@ -5,7 +5,7 @@
  *  Author: harsh
  */ 
 
-#include "spi_usi_driver.h"
+#include "Config/spi_usi_driver.h"
 
 /**
  * Data input register buffer
@@ -28,6 +28,8 @@ volatile struct usidriverStatus_t spiX_status; // The driver status bits
  * stop the timer tick.
  * For all modes, the USIDR contents are stored and flags updates
  */
+//#pragma vector = USI_OVF_vect
+//__interrupt void usiovf_handler
 ISR(USI_OVERFLOW_vect)
 {
     // TODO: Master must disable compare match interrupt

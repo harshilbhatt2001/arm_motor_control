@@ -119,10 +119,22 @@
     </ToolchainSettings>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="Config\clock_config.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="Config\spi_usi_driver.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\spi_usi_driver_init.h">
+      <SubType>compile</SubType>
+    </Compile>
     <Compile Include="include\port.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\protected_io.h">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="include\sysctrl.h">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="include\system.h">
@@ -134,7 +146,10 @@
     <Compile Include="spi_usi_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="spi_usi_driver.h">
+    <Compile Include="src\protected_io.S">
+      <SubType>compile</SubType>
+    </Compile>
+    <Compile Include="src\spi_usi_driver_init.c">
       <SubType>compile</SubType>
     </Compile>
     <Compile Include="utils\assembler.h">
@@ -164,6 +179,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="include" />
+    <Folder Include="Config" />
+    <Folder Include="src" />
     <Folder Include="utils\" />
     <Folder Include="utils\assembler\" />
   </ItemGroup>

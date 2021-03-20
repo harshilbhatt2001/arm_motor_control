@@ -34,6 +34,8 @@ LINKER_SCRIPT_DEP:=
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
 ../include \
+../Config \
+../src \
 ../utils/ \
 ../utils/assembler/
 
@@ -41,10 +43,12 @@ SUBDIRS :=  \
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
 ../main.c \
-../spi_usi_driver.c
+../spi_usi_driver.c \
+../src/spi_usi_driver_init.c
 
 
-PREPROCESSING_SRCS += 
+PREPROCESSING_SRCS +=  \
+../src/protected_io.S
 
 
 ASM_SRCS += 
@@ -52,19 +56,27 @@ ASM_SRCS +=
 
 OBJS +=  \
 main.o \
-spi_usi_driver.o
+spi_usi_driver.o \
+src/protected_io.o \
+src/spi_usi_driver_init.o
 
 OBJS_AS_ARGS +=  \
 main.o \
-spi_usi_driver.o
+spi_usi_driver.o \
+src/protected_io.o \
+src/spi_usi_driver_init.o
 
 C_DEPS +=  \
 main.d \
-spi_usi_driver.d
+spi_usi_driver.d \
+src/protected_io.d \
+src/spi_usi_driver_init.d
 
 C_DEPS_AS_ARGS +=  \
 main.d \
-spi_usi_driver.d
+spi_usi_driver.d \
+src/protected_io.d \
+src/spi_usi_driver_init.d
 
 OUTPUT_FILE_PATH +=motor_control.elf
 
@@ -94,6 +106,13 @@ LINKER_SCRIPT_DEP+=
 	@echo Finished building: $<
 	
 
+src/spi_usi_driver_init.o: ../src/spi_usi_driver_init.c
+	@echo Building file: $<
+	@echo Invoking: XC8 C Compiler : 2.31
+	$(QUOTE)D:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE)  -mcpu=ATtiny2313A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\xc8"  -c -x c -funsigned-char -funsigned-bitfields -mext=cci -D__ATtiny2313A__ -DDEBUG  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 
 
 
@@ -102,6 +121,13 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU Assembler
+src/protected_io.o: ../src/protected_io.S
+	@echo Building file: $<
+	@echo Invoking: XC8 Assembler : 2.31
+	$(QUOTE)D:\Program Files\Microchip\xc8\v2.31\bin\xc8-cc.exe$(QUOTE) -mcpu=ATtiny2313A  -mdfp="C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATtiny_DFP\1.8.332\xc8"  -Wa, -x assembler-with-cpp -c -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)" -Wa,-g   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
 
 
 

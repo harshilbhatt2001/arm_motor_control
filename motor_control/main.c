@@ -15,11 +15,19 @@
 /************************************************************************/
 
 #include "include/system.h"
+#include "Config/spi_usi_driver.h"
+#include "avr/io.h"
+#include "avr/interrupt.h"
+
+#define SPIMODE 0
 
 int main(void)
 {
+    system_init();
+    spiX_initslave(SPIMODE);
+    sei();
     while(1)
     {
-        //TODO:: Please write your application code 
+        PORTB_set_port_level(spiX_get(), true);
     }
 }

@@ -1,0 +1,348 @@
+
+motor_control.elf:     file format elf32-avr
+
+Sections:
+Idx Name          Size      VMA       LMA       File off  Algn
+  0 .text         0000007c  00000000  00000000  00000074  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+  1 .data         00000000  00800060  00800060  000001b4  2**0
+                  ALLOC, LOAD, DATA
+  2 .bss          00000002  00800060  00800060  000001b4  2**0
+                  ALLOC
+  3 .comment      0000002f  00000000  00000000  000001b4  2**0
+                  CONTENTS, READONLY
+  4 .debug_aranges 00000098  00000000  00000000  000001e8  2**3
+                  CONTENTS, READONLY, DEBUGGING
+  5 .debug_info   00000fbd  00000000  00000000  00000280  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  6 .debug_abbrev 0000071a  00000000  00000000  0000123d  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  7 .debug_line   00000495  00000000  00000000  00001957  2**0
+                  CONTENTS, READONLY, DEBUGGING
+  8 .debug_frame  000000ac  00000000  00000000  00001dec  2**2
+                  CONTENTS, READONLY, DEBUGGING
+  9 .debug_str    000001bc  00000000  00000000  00001e98  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 10 .debug_loc    000000eb  00000000  00000000  00002054  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 11 .debug_ranges 00000048  00000000  00000000  0000213f  2**0
+                  CONTENTS, READONLY, DEBUGGING
+ 12 .text         00000002  0000013e  0000013e  000001b2  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 13 .note.gnu.avr.deviceinfo 00000040  00000000  00000000  00002188  2**2
+                  CONTENTS, READONLY, DEBUGGING
+ 14 .text.main    00000012  00000118  00000118  0000018c  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 15 .text.__vector_16 0000002c  000000c0  000000c0  00000134  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 16 .text.spiX_initslave 00000044  0000007c  0000007c  000000f0  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 17 .text.spiX_get 00000006  00000138  00000138  000001ac  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 18 .text.protected_write_io 0000000e  0000012a  0000012a  0000019e  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+ 19 .text.system_init 0000002c  000000ec  000000ec  00000160  2**1
+                  CONTENTS, ALLOC, LOAD, READONLY, CODE
+
+Disassembly of section .text:
+
+00000000 <__vectors>:
+   0:	17 c0       	rjmp	.+46     	; 0x30 <__ctors_end>
+   2:	9d c0       	rjmp	.+314    	; 0x13e <__bad_interrupt>
+   4:	9c c0       	rjmp	.+312    	; 0x13e <__bad_interrupt>
+   6:	9b c0       	rjmp	.+310    	; 0x13e <__bad_interrupt>
+   8:	9a c0       	rjmp	.+308    	; 0x13e <__bad_interrupt>
+   a:	99 c0       	rjmp	.+306    	; 0x13e <__bad_interrupt>
+   c:	98 c0       	rjmp	.+304    	; 0x13e <__bad_interrupt>
+   e:	97 c0       	rjmp	.+302    	; 0x13e <__bad_interrupt>
+  10:	96 c0       	rjmp	.+300    	; 0x13e <__bad_interrupt>
+  12:	95 c0       	rjmp	.+298    	; 0x13e <__bad_interrupt>
+  14:	94 c0       	rjmp	.+296    	; 0x13e <__bad_interrupt>
+  16:	93 c0       	rjmp	.+294    	; 0x13e <__bad_interrupt>
+  18:	92 c0       	rjmp	.+292    	; 0x13e <__bad_interrupt>
+  1a:	91 c0       	rjmp	.+290    	; 0x13e <__bad_interrupt>
+  1c:	90 c0       	rjmp	.+288    	; 0x13e <__bad_interrupt>
+  1e:	8f c0       	rjmp	.+286    	; 0x13e <__bad_interrupt>
+  20:	4f c0       	rjmp	.+158    	; 0xc0 <__vector_16>
+  22:	8d c0       	rjmp	.+282    	; 0x13e <__bad_interrupt>
+  24:	8c c0       	rjmp	.+280    	; 0x13e <__bad_interrupt>
+  26:	8b c0       	rjmp	.+278    	; 0x13e <__bad_interrupt>
+  28:	8a c0       	rjmp	.+276    	; 0x13e <__bad_interrupt>
+
+0000002a <.dinit>:
+  2a:	00 60       	ori	r16, 0x00	; 0
+  2c:	00 62       	ori	r16, 0x20	; 32
+  2e:	80 00       	.word	0x0080	; ????
+
+00000030 <__ctors_end>:
+  30:	11 24       	eor	r1, r1
+  32:	1f be       	out	0x3f, r1	; 63
+  34:	cf ed       	ldi	r28, 0xDF	; 223
+  36:	cd bf       	out	0x3d, r28	; 61
+
+00000038 <__do_copy_data>:
+  38:	ea e2       	ldi	r30, 0x2A	; 42
+  3a:	f0 e0       	ldi	r31, 0x00	; 0
+  3c:	40 e0       	ldi	r20, 0x00	; 0
+  3e:	17 c0       	rjmp	.+46     	; 0x6e <__do_clear_bss+0x8>
+  40:	b5 91       	lpm	r27, Z+
+  42:	a5 91       	lpm	r26, Z+
+  44:	35 91       	lpm	r19, Z+
+  46:	25 91       	lpm	r18, Z+
+  48:	05 91       	lpm	r16, Z+
+  4a:	07 fd       	sbrc	r16, 7
+  4c:	0c c0       	rjmp	.+24     	; 0x66 <__do_clear_bss>
+  4e:	95 91       	lpm	r25, Z+
+  50:	85 91       	lpm	r24, Z+
+  52:	ef 01       	movw	r28, r30
+  54:	f9 2f       	mov	r31, r25
+  56:	e8 2f       	mov	r30, r24
+  58:	05 90       	lpm	r0, Z+
+  5a:	0d 92       	st	X+, r0
+  5c:	a2 17       	cp	r26, r18
+  5e:	b3 07       	cpc	r27, r19
+  60:	d9 f7       	brne	.-10     	; 0x58 <__SREG__+0x19>
+  62:	fe 01       	movw	r30, r28
+  64:	04 c0       	rjmp	.+8      	; 0x6e <__do_clear_bss+0x8>
+
+00000066 <__do_clear_bss>:
+  66:	1d 92       	st	X+, r1
+  68:	a2 17       	cp	r26, r18
+  6a:	b3 07       	cpc	r27, r19
+  6c:	e1 f7       	brne	.-8      	; 0x66 <__do_clear_bss>
+  6e:	ef 32       	cpi	r30, 0x2F	; 47
+  70:	f4 07       	cpc	r31, r20
+  72:	31 f7       	brne	.-52     	; 0x40 <__SREG__+0x1>
+  74:	51 d0       	rcall	.+162    	; 0x118 <main>
+  76:	00 c0       	rjmp	.+0      	; 0x78 <_exit>
+
+00000078 <_exit>:
+  78:	f8 94       	cli
+
+0000007a <__stop_program>:
+  7a:	ff cf       	rjmp	.-2      	; 0x7a <__stop_program>
+
+Disassembly of section .text:
+
+0000013e <__bad_interrupt>:
+ 13e:	60 cf       	rjmp	.-320    	; 0x0 <__TEXT_REGION_ORIGIN__>
+
+Disassembly of section .text.main:
+
+00000118 <main>:
+
+#define SPIMODE 0
+
+int main(void)
+{
+    system_init();
+ 118:	e9 df       	rcall	.-46     	; 0xec <system_init>
+    spiX_initslave(SPIMODE);
+ 11a:	80 e0       	ldi	r24, 0x00	; 0
+ 11c:	af df       	rcall	.-162    	; 0x7c <__data_load_end>
+    sei();
+ 11e:	78 94       	sei
+    while(1)
+    {
+        PORTB_set_port_level(spiX_get(), true);
+ 120:	0b d0       	rcall	.+22     	; 0x138 <spiX_get>
+ *                  false = Pin levels set to "low" state
+ */
+static inline void PORTB_set_port_level(const uint8_t mask, const bool level)
+{
+    if (level) {
+        PORTB |= mask;
+ 122:	98 b3       	in	r25, 0x18	; 24
+ 124:	89 2b       	or	r24, r25
+ 126:	88 bb       	out	0x18, r24	; 24
+ 128:	fb cf       	rjmp	.-10     	; 0x120 <main+0x8>
+
+Disassembly of section .text.__vector_16:
+
+000000c0 <__vector_16>:
+ * For all modes, the USIDR contents are stored and flags updates
+ */
+//#pragma vector = USI_OVF_vect
+//__interrupt void usiovf_handler
+ISR(USI_OVERFLOW_vect)
+{
+  c0:	1f 92       	push	r1
+  c2:	0f 92       	push	r0
+  c4:	0f b6       	in	r0, 0x3f	; 63
+  c6:	0f 92       	push	r0
+  c8:	11 24       	eor	r1, r1
+  ca:	8f 93       	push	r24
+    // TODO: Master must disable compare match interrupt
+    // Update flags and clear USI counter
+    USISR                        = (1 << USIOIF);
+  cc:	80 e4       	ldi	r24, 0x40	; 64
+  ce:	8e b9       	out	0x0e, r24	; 14
+    spiX_status.transferComplete = 1;
+  d0:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <spiX_status>
+  d4:	82 60       	ori	r24, 0x02	; 2
+  d6:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <spiX_status>
+
+    // Copy USIDR to buffer
+    storedUSIDR = USIDR;
+  da:	8f b1       	in	r24, 0x0f	; 15
+  dc:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
+}
+  e0:	8f 91       	pop	r24
+  e2:	0f 90       	pop	r0
+  e4:	0f be       	out	0x3f, r0	; 63
+  e6:	0f 90       	pop	r0
+  e8:	1f 90       	pop	r1
+  ea:	18 95       	reti
+
+Disassembly of section .text.spiX_initslave:
+
+0000007c <spiX_initslave>:
+ * @param spimode   Must be 0 or 1
+ */
+void spiX_initslave(char spimode)
+{
+    // Configure port direction
+    USI_DIR_REG |= (1 << USI_DATAOUT_PIN);                          // Output
+  7c:	97 b3       	in	r25, 0x17	; 23
+  7e:	90 64       	ori	r25, 0x40	; 64
+  80:	97 bb       	out	0x17, r25	; 23
+    USI_DIR_REG &= ~(1 << USI_DATAIN_PIN) | (1 << USI_CLOCK_PIN);   // input
+  82:	97 b3       	in	r25, 0x17	; 23
+  84:	9f 7d       	andi	r25, 0xDF	; 223
+  86:	97 bb       	out	0x17, r25	; 23
+    USI_OUT_REG |= (1 << USI_DATAIN_PIN) | (1 << USI_CLOCK_PIN);    // pull-up
+  88:	98 b3       	in	r25, 0x18	; 24
+  8a:	90 6a       	ori	r25, 0xA0	; 160
+  8c:	98 bb       	out	0x18, r25	; 24
+
+    // Configure USI to 3-wire SPI slave with overflow interrupt
+    USICR = (1 << USIOIE) | (1 << USIWM0) | (1 << USICS1) | (spimode << USICS0);
+  8e:	90 e0       	ldi	r25, 0x00	; 0
+  90:	88 0f       	add	r24, r24
+  92:	99 1f       	adc	r25, r25
+  94:	88 0f       	add	r24, r24
+  96:	99 1f       	adc	r25, r25
+  98:	88 65       	ori	r24, 0x58	; 88
+  9a:	8d b9       	out	0x0d, r24	; 13
+
+    // Init driver status register
+    spiX_status.masterMode = 0;
+  9c:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <spiX_status>
+  a0:	8e 7f       	andi	r24, 0xFE	; 254
+  a2:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <spiX_status>
+    spiX_status.transferComplete = 0;
+  a6:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <spiX_status>
+  aa:	8d 7f       	andi	r24, 0xFD	; 253
+  ac:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <spiX_status>
+    spiX_status.writeCollision = 0;
+  b0:	80 91 61 00 	lds	r24, 0x0061	; 0x800061 <spiX_status>
+  b4:	8b 7f       	andi	r24, 0xFB	; 251
+  b6:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <spiX_status>
+
+    storedUSIDR = 0;
+  ba:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
+  be:	08 95       	ret
+
+Disassembly of section .text.spiX_get:
+
+00000138 <spiX_get>:
+// }
+
+unsigned char spiX_get()
+{
+    return storedUSIDR;
+}
+ 138:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
+ 13c:	08 95       	ret
+
+Disassembly of section .text.protected_write_io:
+
+0000012a <protected_write_io>:
+#if defined(__GNUC__)
+	/*
+	 * We need to disable interrupts globally before the protected
+	 * sequence. In order to do that we must save SREG first.
+	 */
+	in      r18,    _SFR_IO_ADDR(SREG)
+ 12a:	2f b7       	in	r18, 0x3f	; 63
+	cli
+ 12c:	f8 94       	cli
+  
+#ifdef RAMPZ
+	out     _SFR_IO_ADDR(RAMPZ), r1         // Clear bits 23:16 of Z
+#endif
+	movw    r30, r24                // Load addr into Z
+ 12e:	fc 01       	movw	r30, r24
+	st      Z, r22                  // Write protection bit to I/O register
+ 130:	60 83       	st	Z, r22
+	st      Z, r20                  // Write value to I/O register
+ 132:	40 83       	st	Z, r20
+	out     _SFR_IO_ADDR(SREG), r18
+ 134:	2f bf       	out	0x3f, r18	; 63
+
+	ret                             // Return to caller
+ 136:	08 95       	ret
+
+Disassembly of section .text.system_init:
+
+000000ec <system_init>:
+{
+    /* On AVR devices all peripherals are enabled from power on reset, this
+     * disables all peripherals to save power. Driver shall enable
+     * peripheral if used */
+
+    PRR = (1 << PRUSI) | (1 << PRUSART) | (1 << PRTIM0) | (1 << PRTIM1);
+  ec:	8f e0       	ldi	r24, 0x0F	; 15
+  ee:	86 b9       	out	0x06, r24	; 6
+            break;
+        case PORT_DIR_OUT:
+            DDRA |= mask;
+            break;
+        case PORT_DIR_OFF:
+            DDRA &= ~mask;
+  f0:	8a b3       	in	r24, 0x1a	; 26
+  f2:	1a ba       	out	0x1a, r1	; 26
+
+            PORTA |= mask;
+  f4:	8b b3       	in	r24, 0x1b	; 27
+  f6:	8f ef       	ldi	r24, 0xFF	; 255
+  f8:	8b bb       	out	0x1b, r24	; 27
+            break;
+        case PORT_DIR_OUT:
+            DDRB |= mask;
+            break;
+        case PORT_DIR_OFF:
+            DDRB &= ~mask;
+  fa:	97 b3       	in	r25, 0x17	; 23
+  fc:	17 ba       	out	0x17, r1	; 23
+
+            PORTB |= mask;
+  fe:	98 b3       	in	r25, 0x18	; 24
+ 100:	88 bb       	out	0x18, r24	; 24
+            break;
+        case PORT_DIR_OUT:
+            DDRD |= mask;
+            break;
+        case PORT_DIR_OFF:
+            DDRD &= ~mask;
+ 102:	91 b3       	in	r25, 0x11	; 17
+ 104:	11 ba       	out	0x11, r1	; 17
+
+            PORTD |= mask;
+ 106:	92 b3       	in	r25, 0x12	; 18
+ 108:	82 bb       	out	0x12, r24	; 18
+ * Initialize sysctrl interface
+ */
+static inline int8_t sysctrl_init()
+{
+    // Set system clock and prescaler according to configuration
+    protected_write_io((void *)&CLKPR, 1 << CLKPCE, (0 << CLKPS3) | (0 << CLKPS2) | (0 << CLKPS1) | (0 << CLKPS0));
+ 10a:	40 e0       	ldi	r20, 0x00	; 0
+ 10c:	60 e8       	ldi	r22, 0x80	; 128
+ 10e:	86 e4       	ldi	r24, 0x46	; 70
+ 110:	90 e0       	ldi	r25, 0x00	; 0
+ 112:	0b d0       	rcall	.+22     	; 0x12a <protected_write_io>
+	
+	MCUCR = (0 << PUD) | (0 << SM1) | (0 << SE) | (0 << SM0);
+ 114:	15 be       	out	0x35, r1	; 53
+ 116:	08 95       	ret

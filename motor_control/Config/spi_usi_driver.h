@@ -9,7 +9,8 @@
 #ifndef SPI_USI_DRIVER_H_
 #define SPI_USI_DRIVER_H_
 
-#include <xc.h>
+#include "avr/io.h"
+#include "avr/interrupt.h"
 
 /*
  * USI port and pin definitions
@@ -54,5 +55,9 @@ struct usidriverStatus_t {
     unsigned char transferComplete : 1;     // True when transfer complete
     unsigned char writeCollision : 1;       // True if put attempted during transfer
 };
+
+void spiX_initslave(char spimode);
+unsigned char spiX_get();
+void spiX_wait();
 
 #endif /* SPI_USI_DRIVER_H_ */

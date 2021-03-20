@@ -6,3 +6,7 @@ main.c
 
 spi_usi_driver.c
 
+src\protected_io.S
+
+src\spi_usi_driver_init.c
+

@@ -9,6 +9,8 @@
 #ifndef PROTECTED_IO_H
 #define PROTECTED_IO_H
 
+#include <xc.h>
+
 #ifdef __cplusplus
 extern "C" {
 #endif
