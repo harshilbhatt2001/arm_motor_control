@@ -7,11 +7,7 @@
 
 
 /************************************************************************/
-/* TODO
-	1. Receive data from Mega with USI module
-	2. Data receive interrupt on USI
-	3. Transmit data in ISR via USART module 
-                                                                        */
+/* TODO: SS setup for USI module                                        */
 /************************************************************************/
 
 #include "include/system.h"

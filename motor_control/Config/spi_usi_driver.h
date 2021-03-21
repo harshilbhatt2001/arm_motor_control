@@ -56,7 +56,9 @@ struct usidriverStatus_t {
     unsigned char writeCollision : 1;       // True if put attempted during transfer
 };
 
+void spiX_initmaster(char spi_mode);
 void spiX_initslave(char spimode);
+char spiX_put(unsigned char val);
 unsigned char spiX_get();
 void spiX_wait();
 

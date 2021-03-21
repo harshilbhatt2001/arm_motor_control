@@ -141,7 +141,7 @@ Disassembly of section .text:
 Disassembly of section .text:
 
 000001ce <__bad_interrupt>:
- 1ce:	18 cf       	rjmp	.-464    	; 0x0 <__vectors>
+ 1ce:	18 cf       	rjmp	.-464    	; 0x0 <__TEXT_REGION_ORIGIN__>
 
 Disassembly of section .text.main:
 
@@ -194,7 +194,7 @@ ISR(USI_OVERFLOW_vect)
     // Copy USIDR to buffer
     storedUSIDR = USIDR;
  158:	8f b1       	in	r24, 0x0f	; 15
- 15a:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <_edata>
+ 15a:	80 93 60 00 	sts	0x0060, r24	; 0x800060 <__DATA_REGION_ORIGIN__>
 }
  15e:	8f 91       	pop	r24
  160:	0f 90       	pop	r0
@@ -249,7 +249,7 @@ void spiX_initslave(char spimode)
  104:	80 93 61 00 	sts	0x0061, r24	; 0x800061 <spiX_status>
 
     storedUSIDR = 0;
- 108:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <_edata>
+ 108:	10 92 60 00 	sts	0x0060, r1	; 0x800060 <__DATA_REGION_ORIGIN__>
  10c:	08 95       	ret
 
 Disassembly of section .text.spiX_get:
@@ -261,7 +261,7 @@ unsigned char spiX_get()
 {
     return storedUSIDR;
 }
- 1c8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <_edata>
+ 1c8:	80 91 60 00 	lds	r24, 0x0060	; 0x800060 <__DATA_REGION_ORIGIN__>
  1cc:	08 95       	ret
 
 Disassembly of section .text.protected_write_io:

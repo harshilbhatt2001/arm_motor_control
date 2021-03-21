@@ -2,6 +2,8 @@
 # Automatically-generated file. Do not edit or delete the file
 ################################################################################
 
+ext_interrupt_driver.c
+
 main.c
 
 spi_usi_driver.c
