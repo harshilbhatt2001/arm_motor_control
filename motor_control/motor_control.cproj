@@ -131,9 +131,6 @@
     <Compile Include="ext_interrupt_driver.c">
       <SubType>compile</SubType>
     </Compile>
-    <Compile Include="ext_interrupt_driver.h">
-      <SubType>compile</SubType>
-    </Compile>
     <Compile Include="include\ext_interrupt_driver.h">
       <SubType>compile</SubType>
     </Compile>
